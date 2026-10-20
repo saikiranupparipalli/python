@@ -34,14 +34,23 @@ def add_new_video(video):
     save_video(video)
 
 
-def update_video(videos):
-    pass
-def del_video(videos):
-    pass
+def update_video(video):
+    list_all_videos(video)
+    index = int(input('enter the index to be updated: '))
+    name = input("enter the new video name: ")
+    time = input("enter the new video duration: ")
+    video[index -1 ] = {'name': name, 'time': time}
+    save_video(video)
 
+
+def del_video(video):
+    list_all_videos(video)
+    index = int(input('enter the index to be deleted: '))
+    del video[index -1 ]
+    save_video(video)
 
 def main():
-    video = load_video()
+    videos = load_video()
     while True:
         print("Youtube Manager | choose an option")
         print("1. List all videos")
@@ -52,14 +61,26 @@ def main():
 
         match choice:
             case '1':
-                list_all_videos(video)
+                list_all_videos(videos)
             case '2':
-                add_new_video(video)
+                add_new_video(videos)
             case '3':
-                update_video(video)
+                update_video(videos)
             case '4':
-                del_video(video)
+                del_video(videos)
+            case '5':
+                break
+            case _:
+                print('invalid index ')
+            
 
         
 if __name__ == "__main__":
     main()
+    #  index = int(input("enter the index to update: "))
+    #  name = input("enter the new video name")
+    #  time = input("enter the new video duration")
+    #  for vid in index-1:
+    #     video.append({'name': name}, {'time': time})
+    #     save_video(video)
+    #     print('New video info updated successfully.')
