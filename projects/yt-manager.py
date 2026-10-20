@@ -13,15 +13,14 @@ def load_video():
     except FileNotFoundError:
         return []
     
-
 def save_video(video):
     with open('youtube.txt', 'w') as file:
         return json.dump(video, file)
 
-
 def list_all_videos(video):
     print('\n')
     print("*" * 50)
+    print(video)
     for index, vid in enumerate(video, start= 1):
         print(f"{index}. {vid['name']}, 'Duration': {vid['time']}")
     # print('\n')
@@ -33,7 +32,6 @@ def add_new_video(video):
     video.append({'name':name, 'time':time})
     save_video(video)
 
-
 def update_video(video):
     list_all_videos(video)
     index = int(input('enter the index to be updated: '))
@@ -42,12 +40,13 @@ def update_video(video):
     video[index -1 ] = {'name': name, 'time': time}
     save_video(video)
 
-
 def del_video(video):
     list_all_videos(video)
     index = int(input('enter the index to be deleted: '))
-    del video[index -1 ]
+    del video[index -1]
     save_video(video)
+
+    
 
 def main():
     videos = load_video()
@@ -57,6 +56,7 @@ def main():
         print("2. Add a new video")
         print("3. Update a video")
         print("4. del a video")
+        print("5. Exit")
         choice = input('enter the choice: ')
 
         match choice:
@@ -73,8 +73,6 @@ def main():
             case _:
                 print('invalid index ')
             
-
-        
 if __name__ == "__main__":
     main()
     #  index = int(input("enter the index to update: "))
