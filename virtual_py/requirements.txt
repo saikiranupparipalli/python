@@ -1,0 +1,13 @@
+Package            Version
+------------------ ----------
+certifi            2026.10.19
+charset-normalizer 3.5.2
+idna               3.20
+pip                25.2
+requests           2.34.2
+urllib3            2.8.0
+
+pip install virtualenv 
+python -m venv .venv --creates a folder using pkg<virtualenv>
+source ./.venv/Scripts/activate --command to switch into virtualenv
+pip list > req.txt --redirects the info to <file.txt>
