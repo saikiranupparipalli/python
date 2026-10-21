@@ -60,5 +60,7 @@ def main():
         else:
             print('Invalid index')
 
+    conn.close()
+
 if __name__ == "__main__":
     main()
